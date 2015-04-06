@@ -1,2 +1,2 @@
-# Bachaty
+# BaChaty
 XMPP Client 
