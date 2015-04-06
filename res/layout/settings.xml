@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <EditText
+            android:id="@+id/host"
+            style="@style/App_EditTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="70"
+            android:autoText="false"
+            android:capitalize="none"
+            android:hint="Host"
+            android:minWidth="150dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="192.168.1.25"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/port"
+            style="@style/App_EditTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="30"
+            android:autoText="false"
+            android:capitalize="none"
+            android:hint="Port"
+            android:minWidth="80dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="5222"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/service"
+        style="@style/App_EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:autoText="false"
+        android:capitalize="none"
+        android:hint="Service"
+        android:minWidth="250dp"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="rishikesh"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/userid"
+        style="@style/App_EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:autoText="false"
+        android:capitalize="none"
+        android:hint="Username"
+        android:minWidth="250dp"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="souvik"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/password"
+        style="@style/App_EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:autoText="false"
+        android:capitalize="none"
+        android:hint="Password"
+        android:minWidth="250dp"
+        android:password="true"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="Password1"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/ok"
+        style="@style/App_ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:text="OK" >
+    </Button>
+
+</LinearLayout>
