@@ -2,6 +2,7 @@ package com.rishi.bechaty.ui;
 
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -85,6 +86,9 @@ public class ChatListAdapter extends BaseAdapter {
 			} else {
 				tempValues = null;
 				tempValues = (ChatEntity) data.get(position);
+
+				holder.bgrl = getRl(holder.bgrl, data.get(position).isOut());
+
 				holder.text1Name.setText(tempValues.getMessage_body());
 			}
 		}
@@ -92,4 +96,35 @@ public class ChatListAdapter extends BaseAdapter {
 		return vi;
 	}
 
+	@SuppressLint("NewApi")
+	private RelativeLayout getRl(RelativeLayout relativeLayout, boolean isOut) {
+		RelativeLayout.LayoutParams relativeParams = (RelativeLayout.LayoutParams) relativeLayout
+				.getLayoutParams();
+
+		if (isOut) {
+			relativeLayout.setBackground(activity.getResources().getDrawable(
+					R.drawable.out));
+			relativeParams.setMargins(getDP(30), getDP(5), getDP(5), getDP(5)); // left,
+																				// top,
+																				// right,
+																				// bottom
+		} else {
+			relativeLayout.setBackground(activity.getResources().getDrawable(
+					R.drawable.in));
+			relativeParams.setMargins(getDP(5), getDP(5), getDP(30), getDP(5)); // left,
+																				// top,
+																				// right,
+																				// bottom
+		}
+		relativeLayout.setLayoutParams(relativeParams);
+
+		return relativeLayout;
+	}
+
+	private int getDP(int sizeInDp) {
+		float scale = activity.getResources().getDisplayMetrics().density;
+		int dpAsPixels = (int) (sizeInDp * scale + 0.5f);
+
+		return dpAsPixels;
+	}
 }

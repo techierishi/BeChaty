@@ -7,14 +7,18 @@
         android:id="@+id/bgrl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/in"
-        android:layout_margin="5dp" >
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/out" >
 
         <TextView
             android:id="@+id/text1Name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_margin="20dp"
             android:layout_marginLeft="20dp"
             android:singleLine="false"
             android:textStyle="bold" />

@@ -87,6 +87,9 @@ public class XMPPClient extends Activity {
 				ceObj.setOut(true);
 				messages.add(ceObj);
 				mAdapter.changeData(messages);
+				
+				mSendText.setText("");
+				
 			}
 		});
 	}
