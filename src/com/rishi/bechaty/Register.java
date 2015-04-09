@@ -1,9 +1,9 @@
 package com.rishi.bechaty;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-
 
 public class Register extends BaseActivity {
 
@@ -13,7 +13,6 @@ public class Register extends BaseActivity {
 
 	private EditText email;
 
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,7 +25,6 @@ public class Register extends BaseActivity {
 		email = (EditText) findViewById(R.id.email);
 	}
 
-	
 	@Override
 	public void onClick(View v) {
 		super.onClick(v);
@@ -35,5 +33,11 @@ public class Register extends BaseActivity {
 		String p = pwd.getText().toString();
 		String e = email.getText().toString();
 
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+
+		return false;
 	}
 }
