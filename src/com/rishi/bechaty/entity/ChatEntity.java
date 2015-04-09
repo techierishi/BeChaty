@@ -3,10 +3,18 @@ package com.rishi.bechaty.entity;
 public class ChatEntity {
 
 	private String username;
+	private String message_type;
 	private String message_body;
 	private boolean out;
 
-	
+	public String getMessage_type() {
+		return message_type;
+	}
+
+	public void setMessage_type(String message_type) {
+		this.message_type = message_type;
+	}
+
 	public boolean isOut() {
 		return out;
 	}

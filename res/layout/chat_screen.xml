@@ -1,46 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentTop="true"
         android:layout_above="@+id/bottom_ll"
+        android:layout_alignParentTop="true"
         android:orientation="vertical" >
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/toptb"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal"
-            android:weightSum="100" >
+            android:layout_alignParentTop="true" >
 
-            <EditText
-                android:id="@+id/recipient"
-                style="@style/App_EditTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="70"
-                android:autoText="false"
-                android:capitalize="none"
-                android:hint="Recipient"
-                android:minWidth="250dp"
-                android:scrollHorizontally="true"
-                android:singleLine="true"
-                android:textSize="16sp" />
+            <!-- <include layout="@layout/app_toolbar" /> -->
 
-            <Button
-                android:id="@+id/setup"
-                style="@style/App_ButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="30"
-                android:text="Setup" >
-            </Button>
-        </LinearLayout>
+        </RelativeLayout>
 
         <ListView
             android:id="@+id/listMessages"
@@ -48,38 +27,47 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:divider="@null"
-            android:scrollbars="horizontal" />
+            android:fastScrollEnabled="true"
+            android:listSelector="@android:color/transparent"
+            android:paddingBottom="@dimen/pad_10dp"
+            android:paddingTop="@dimen/pad_10dp"
+            android:scrollbars="horizontal"
+            tools:listitem="@layout/chat_item_sent" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bottom_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
         android:weightSum="100" >
 
         <EditText
             android:id="@+id/sendText"
-            style="@style/App_EditTextStyle"
+            style="@style/editext_white"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:layout_weight="80"
             android:autoText="false"
             android:capitalize="none"
+            android:padding="5dp"
             android:scrollHorizontally="true"
             android:singleLine="true"
             android:textSize="16sp" />
 
         <Button
             android:id="@+id/send"
-            style="@style/App_ButtonStyle"
+            style="@style/btn_white_large"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:layout_weight="20"
             android:text="Send" >

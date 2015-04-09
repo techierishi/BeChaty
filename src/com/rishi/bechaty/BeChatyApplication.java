@@ -29,7 +29,7 @@ import android.app.Application;
  * See samples/ApiDemos/tests/src/com.example.android.apis/ApiDemosApplicationTests for an example
  * of how to perform unit tests on an Application object.
  */
-public class XMPPDemosApplication extends Application {
+public class BeChatyApplication extends Application {
 
     public void onCreate() {
     }

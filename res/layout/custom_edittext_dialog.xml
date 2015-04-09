@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/dialog_bg"
+        android:padding="5dp" >
+
+        <EditText
+            android:id="@+id/alert_etext"
+            style="@style/editext_graybg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:hint="Enter text"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:textColor="#222222" />
+
+        <Button
+            android:id="@+id/dialogButtonOK"
+            style="@style/btn_white_large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/alert_etext"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text=" OK "
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+
+</RelativeLayout>

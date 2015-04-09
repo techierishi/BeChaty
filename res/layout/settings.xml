@@ -12,7 +12,7 @@
 
         <EditText
             android:id="@+id/host"
-            style="@style/App_EditTextStyle"
+            style="@style/editext_graybg"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_marginTop="5dp"
@@ -28,7 +28,7 @@
 
         <EditText
             android:id="@+id/port"
-            style="@style/App_EditTextStyle"
+            style="@style/editext_graybg"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_marginTop="5dp"
@@ -45,7 +45,7 @@
 
     <EditText
         android:id="@+id/service"
-        style="@style/App_EditTextStyle"
+        style="@style/editext_graybg"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
@@ -60,7 +60,7 @@
 
     <EditText
         android:id="@+id/userid"
-        style="@style/App_EditTextStyle"
+        style="@style/editext_graybg"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
@@ -75,7 +75,7 @@
 
     <EditText
         android:id="@+id/password"
-        style="@style/App_EditTextStyle"
+        style="@style/editext_graybg"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
@@ -91,7 +91,7 @@
 
     <Button
         android:id="@+id/ok"
-        style="@style/App_ButtonStyle"
+        style="@style/btn_white_large"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginBottom="5dp"

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llaa"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="@dimen/pad_5dp"
+            android:layout_marginBottom="@dimen/pad_5dp"
+            android:layout_marginRight="@dimen/pad_10dp"
+            android:background="@drawable/rcv"
+            android:orientation="vertical"
+            android:padding="@dimen/pad_10dp" >
+
+            <TextView
+                android:id="@+id/lbl1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello there !"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_13sp" />
+
+            <TextView
+                android:id="@+id/lbl2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pad_5dp"
+                android:maxLines="4"
+                android:text="12:00"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_14sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
