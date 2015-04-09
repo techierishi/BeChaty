@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 
 import com.rishi.bechaty.util.CC;
@@ -110,6 +111,12 @@ public class Login extends BaseActivity {
 		if (requestCode == 10 && resultCode == RESULT_OK)
 			finish();
 
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+
+		return false;
 	}
 
 }
