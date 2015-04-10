@@ -13,19 +13,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 
 import com.rishi.bechaty.entity.ChatEntity;
 import com.rishi.bechaty.ui.ChatListAdapter;
@@ -229,4 +237,66 @@ public class ChatScreen extends BaseActivity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		int id = item.getItemId();
+		if (id == R.id.action_attach) {
+
+			View menuButton = findViewById(R.id.action_attach);
+
+			int[] location = new int[2];
+			menuButton.getLocationOnScreen(location);
+
+			point = new Point();
+			point.x = location[0];
+			point.y = location[1];
+			showStatusPopup(this, point);
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	// The method that displays the popup.
+	private void showStatusPopup(final Activity context, Point p) {
+
+		// Inflate the popup_layout.xml
+		LinearLayout viewGroup = (LinearLayout) context
+				.findViewById(R.id.llStatusChangePopup);
+		LayoutInflater layoutInflater = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View layout = layoutInflater.inflate(R.layout.attachpopup, null);
+
+		// Creating the PopupWindow
+		changeStatusPopUp = new PopupWindow(context);
+		changeStatusPopUp.setContentView(layout);
+		changeStatusPopUp.setWidth(LinearLayout.LayoutParams.WRAP_CONTENT);
+		changeStatusPopUp.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
+		changeStatusPopUp.setFocusable(true);
+
+		LinearLayout llGallery = (LinearLayout) layout
+				.findViewById(R.id.llGallery);
+
+		llGallery.setOnClickListener(galleryClickListener);
+
+		// Some offset to align the popup a bit to the left, and a bit down,
+		// relative to button's position.
+		int OFFSET_X = -50;
+		int OFFSET_Y = 80;
+
+		// Displaying the popup at the specified location, + offsets.
+		changeStatusPopUp.showAtLocation(layout, Gravity.NO_GRAVITY, p.x
+				+ OFFSET_X, p.y + OFFSET_Y);
+	}
+
+	OnClickListener galleryClickListener = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			Popups.showToast(" galleryClickListener clicked  ", ChatScreen.this);
+
+			changeStatusPopUp.dismiss();
+		}
+	};
 }

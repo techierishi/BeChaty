@@ -33,6 +33,11 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <style name="Animation">
+        <item name="android:windowEnterAnimation">@anim/fadein</item>
+        <item name="android:windowExitAnimation">@anim/fadeout</item>
+    </style>
+
     <style name="editext_graybg" parent="android:Widget.EditText">
         <item name="android:background">@drawable/editext_bg_gray</item>
         <item name="android:drawablePadding">@dimen/pad_10dp</item>
