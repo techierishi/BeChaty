@@ -13,4 +13,6 @@ public class CC {
 			.getExternalStorageDirectory().getAbsolutePath()
 			+ "/BeChaty/Images/";
 	public static XMPPConnection connection = null;
+
+	public static final String TAG = "BeChaty";
 }

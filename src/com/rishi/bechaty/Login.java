@@ -17,8 +17,6 @@ import com.rishi.bechaty.util.Popups;
 
 public class Login extends BaseActivity {
 
-	// private XMPPClient xmppClient;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,63 +24,68 @@ public class Login extends BaseActivity {
 
 		setTouchNClick(R.id.btnLogin);
 		setTouchNClick(R.id.btnReg);
-		// xmppClient = new XMPPClient();
 
 	}
 
 	@Override
 	public void onClick(View v) {
 		super.onClick(v);
+
+		final String host = getTxt(Login.this, R.id.host);
+		final String port = getTxt(Login.this, R.id.port);
+		final String service = getTxt(Login.this, R.id.service);
+		final String username = getTxt(Login.this, R.id.userid);
+		final String password = getTxt(Login.this, R.id.password);
+
+		// Create a connection [starts]
+		final ConnectionConfiguration connConfig = new ConnectionConfiguration(
+				host, Integer.parseInt(port), service);
+		final XMPPConnection connection = new XMPPConnection(connConfig);
+		CC.connection = connection;
+
+		new AsyncTask<String, String, Boolean>() {
+			@Override
+			protected Boolean doInBackground(String... params) {
+				try {
+					CC.connection.connect();
+					Log.e(CC.TAG, "Host : " + CC.connection.getHost());
+				} catch (XMPPException ex) {
+					Log.e(CC.TAG,
+							"Host not connected : " + CC.connection.getHost());
+					ex.printStackTrace();
+					CC.connection = null;
+				}
+				return true;
+			}
+		}.execute();
+		// Create a connection [ends]
+
 		if (v.getId() == R.id.btnReg) {
+
 			startActivityForResult(new Intent(this, Register.class), 10);
+
 		} else {
+
+			// User login [starts]
 			new AsyncTask<String, String, Boolean>() {
 				@Override
 				protected Boolean doInBackground(String... params) {
-					String host = getTxt(Login.this, R.id.host);
-					String port = getTxt(Login.this, R.id.port);
-					String service = getTxt(Login.this, R.id.service);
-					String username = getTxt(Login.this, R.id.userid);
-					String password = getTxt(Login.this, R.id.password);
 
-					// Create a connection
-					ConnectionConfiguration connConfig = new ConnectionConfiguration(
-							host, Integer.parseInt(port), service);
-					XMPPConnection connection = new XMPPConnection(connConfig);
-
-					try {
-						connection.connect();
-						Log.i("XMPPClient", "[SettingsDialog] Connected to "
-								+ connection.getHost());
-					} catch (XMPPException ex) {
-						Log.e("XMPPClient",
-								"[SettingsDialog] Failed to connect to "
-										+ connection.getHost());
-						Log.e("XMPPClient", ex.toString());
-						// xmppClient.setConnection(null);
-						CC.connection = null;
-					}
 					try {
 						connection.login(username, password);
-						Log.i("XMPPClient",
-								"Logged in as " + connection.getUser());
-
-						// Set the status to available
+						Log.i(CC.TAG, "Logged in as " + connection.getUser());
 						Presence presence = new Presence(
 								Presence.Type.available);
 						connection.sendPacket(presence);
-						// xmppClient.setConnection(connection);
 						CC.connection = connection;
+
 					} catch (XMPPException ex) {
-						Log.e("XMPPClient",
-								"[SettingsDialog] Failed to log in as "
-										+ username);
-						Log.e("XMPPClient", ex.toString());
-						// xmppClient.setConnection(null);
+						Log.e(CC.TAG, "Failed to logIn as " + username);
+						ex.printStackTrace();
 						CC.connection = null;
 					}
 
-					if (connection != null) {
+					if (CC.connection != null) {
 						return true;
 					} else {
 						return false;
@@ -100,7 +103,7 @@ public class Login extends BaseActivity {
 					super.onPostExecute(result);
 				}
 			}.execute();
-
+			// User login [ends]
 		}
 
 	}
