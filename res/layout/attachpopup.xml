@@ -42,7 +42,7 @@
         android:background="#343434" />
 
     <LinearLayout
-        android:id="@+id/llVideo"
+        android:id="@+id/llCamera"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:addStatesFromChildren="true"
@@ -67,7 +67,7 @@
             android:layout_weight="70"
             android:clickable="true"
             android:gravity="center_vertical"
-            android:text="Video"
+            android:text="Camera"
             android:textColor="@color/white" />
     </LinearLayout>
 
