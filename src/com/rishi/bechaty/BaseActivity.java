@@ -3,6 +3,7 @@ package com.rishi.bechaty;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -76,4 +77,18 @@ public class BaseActivity extends ActionBarActivity implements OnClickListener {
 		return widget.getText().toString();
 	}
 
+	public void setRecipient(String rName) {
+		SharedPreferences sharedPref = getApplicationContext()
+				.getSharedPreferences("recipient_sp", Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = sharedPref.edit();
+		editor.putString("recipient", "" + rName);
+		editor.commit();
+	}
+
+	public String getRecipient() {
+		SharedPreferences sharedPref = getApplicationContext()
+				.getSharedPreferences("recipient_sp", Context.MODE_PRIVATE);
+		String recipient = sharedPref.getString("recipient", "");
+		return recipient;
+	}
 }

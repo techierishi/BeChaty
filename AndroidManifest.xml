@@ -25,6 +25,7 @@
         </activity>
         <activity android:name=".ChatScreen" />
         <activity android:name=".Register" />
+        <activity android:name=".UserList" />
     </application>
 
 </manifest>

@@ -92,7 +92,7 @@ public class Login extends BaseActivity {
 				@Override
 				protected void onPostExecute(Boolean result) {
 					if (result) {
-						startActivity(new Intent(Login.this, ChatScreen.class));
+						startActivity(new Intent(Login.this, UserList.class));
 					} else {
 						Popups.showToast("Invalid credentials !", Login.this);
 					}

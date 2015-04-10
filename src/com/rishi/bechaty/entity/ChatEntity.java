@@ -39,4 +39,10 @@ public class ChatEntity {
 		this.message_body = message_body;
 	}
 
+	@Override
+	public String toString() {
+		return "[username : " + username + " message_type :" + message_type
+				+ " ]";
+	}
+
 }

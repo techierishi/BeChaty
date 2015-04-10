@@ -74,19 +74,6 @@ public class ChatScreen extends ImageChooserActivity implements
 
 		setConnection(CC.connection);
 
-		// Show user popup
-		if (getRecipient().trim().isEmpty())
-			Popups.showEditextPopup(this, "Enter User to chat with",
-					new CustomETDialogCallback() {
-
-						@Override
-						public void onEtOkClick(String _recipient) {
-							setRecipient(_recipient);
-							// abar.setTitle("" + getRecipient());
-
-						}
-					});
-
 		// Set a listener to send a chat text message
 		Button send = (Button) this.findViewById(R.id.send);
 		send.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +115,12 @@ public class ChatScreen extends ImageChooserActivity implements
 
 			}
 		});
-		// customActionBar();
+		customActionBar();
+
+		if (!getRecipient().trim().isEmpty()) {
+			abar.setTitle("" + getRecipient());
+		}
+
 	}
 
 	/**
@@ -210,21 +202,6 @@ public class ChatScreen extends ImageChooserActivity implements
 		// setSupportActionBar(mToolbar);
 		abar = getSupportActionBar();
 		abar.setTitle("BeChaty");
-	}
-
-	private void setRecipient(String rName) {
-		SharedPreferences sharedPref = getApplicationContext()
-				.getSharedPreferences("recipient_sp", Context.MODE_PRIVATE);
-		SharedPreferences.Editor editor = sharedPref.edit();
-		editor.putString("recipient", "" + rName);
-		editor.commit();
-	}
-
-	private String getRecipient() {
-		SharedPreferences sharedPref = getApplicationContext()
-				.getSharedPreferences("recipient_sp", Context.MODE_PRIVATE);
-		String recipient = sharedPref.getString("recipient", "");
-		return recipient;
 	}
 
 	private void scrollMyListViewToBottom() {
